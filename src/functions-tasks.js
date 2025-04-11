@@ -89,17 +89,14 @@ function getPowerFunction(exponent) {
  *   getPolynom(8)     => y = 8
  *   getPolynom()      => null
  */
-function getPolynom() {
-  // const l = arguments.length;
-  // const args = ...arguments;
-  // const f = function(x) {
-  //   if (l === 0) return null;
-  //   const arr = [];
-  //   for (let i = l; i >= 0; i -= 1) {
-  //     arr.push(x ** 1 * args[i]);
-  //   }
-  // };
-  // return f;
+function getPolynom(...args) {
+  const arr = Array.from(args).reverse();
+  function f(x) {
+    if (!arr.length) return null;
+    const arr2 = arr.map((item, index) => item * x ** index);
+    return arr2.reduce((sum, current) => sum + current, 0);
+  }
+  return f;
 }
 
 /**
