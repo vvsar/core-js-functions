@@ -52,8 +52,8 @@ function getFunctionBody(func) {
  *  ]) => [0, 1, 2]
  *
  */
-function getArgumentsCount(/* funcs */) {
-  throw new Error('Not implemented');
+function getArgumentsCount(funcs) {
+  return funcs.map((fn) => fn.length);
 }
 
 /**
@@ -187,7 +187,17 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(/* fn, ...args1 */) {
-  throw new Error('Not implemented');
+  // function curry() {
+  //   return function curried(...args) {
+  //     if (args.length >= fn.length) {
+  //       return fn.apply(this, args);
+  //     }
+  //     return function foo(...args2) {
+  //       return curried.apply(this, args.concat(args2));
+  //     };
+  //   };
+  // }
+  // return curry(args1);
 }
 
 /**
