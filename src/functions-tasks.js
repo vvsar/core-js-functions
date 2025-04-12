@@ -183,18 +183,10 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c')('d') => 'abcd'
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
-function partialUsingArguments(/* fn, ...args1 */) {
-  // function curry() {
-  //   return function curried(...args) {
-  //     if (args.length >= fn.length) {
-  //       return fn.apply(this, args);
-  //     }
-  //     return function foo(...args2) {
-  //       return curried.apply(this, args.concat(args2));
-  //     };
-  //   };
-  // }
-  // return curry(args1);
+function partialUsingArguments(fn, ...args1) {
+  return (...args2) => {
+    return fn.call(this, ...args1, ...args2);
+  };
 }
 
 /**
